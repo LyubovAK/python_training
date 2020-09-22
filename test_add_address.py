@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, re
+from address import Address
 
 class TestAddAddress(unittest.TestCase):
     def setUp(self):
@@ -23,25 +24,25 @@ class TestAddAddress(unittest.TestCase):
         wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_xpath("//input[@value='Login']").click()
 
-    def create_address(self, wd, firstname, lastname, address, phone, email):
+    def create_address(self, wd, address):
         # init address creation
         wd.find_element_by_link_text("add new").click()
         # fill address form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(firstname)
+        wd.find_element_by_name("firstname").send_keys(address.firstname)
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(lastname)
+        wd.find_element_by_name("lastname").send_keys(address.lastname)
         wd.find_element_by_name("address").click()
         wd.find_element_by_name("address").clear()
-        wd.find_element_by_name("address").send_keys(address)
+        wd.find_element_by_name("address").send_keys(address.address)
         wd.find_element_by_name("home").click()
         wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys(phone)
+        wd.find_element_by_name("home").send_keys(address.phone)
         wd.find_element_by_name("email").click()
         wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys(email)
+        wd.find_element_by_name("email").send_keys(address.email)
         # submit address creation
         wd.find_element_by_name("submit").click()
 
@@ -55,7 +56,7 @@ class TestAddAddress(unittest.TestCase):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
-        self.create_address(wd, firstname="Lev", lastname="Tolstoy", address="Russia", phone="+79310002345", email="lev@mail.ru")
+        self.create_address(wd, Address(firstname="Lev", lastname="Tolstoy", address="Russia", phone="+79310002345", email="lev@mail.ru"))
         self.return_to_main_page(wd)
         self.logout(wd)
 
