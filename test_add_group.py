@@ -28,7 +28,7 @@ class TestAddGroup(unittest.TestCase):
     def open_groups_page(self, wd):
         wd.find_element_by_link_text("groups").click()
 
-    def creat_group(self, wd, group):
+    def create_group(self, wd, group):
         self.open_groups_page(wd)
         # init group creation
         wd.find_element_by_name("new").click()
@@ -54,13 +54,13 @@ class TestAddGroup(unittest.TestCase):
     def test_add_group(self):
         wd = self.wd
         self.login(wd, username="admin", password="secret")
-        self.creat_group(wd, Group(name="group1", header="group11", footer="group111"))
+        self.create_group(wd, Group(name="group1", header="group11", footer="group111"))
         self.logout(wd)
 
     def test_add_empty_group(self):
         wd = self.wd
         self.login(wd, username="admin", password="secret")
-        self.creat_group(wd, Group(name="", header="", footer=""))
+        self.create_group(wd, Group(name="", header="", footer=""))
         self.logout(wd)
 
     def is_element_present(self, how, what):
