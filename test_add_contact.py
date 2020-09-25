@@ -17,6 +17,7 @@ class TestAddContact(unittest.TestCase):
         wd.get("http://localhost/addressbook/")
 
     def login(self, wd, username, password):
+        self.open_home_page(wd)
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)
@@ -45,6 +46,7 @@ class TestAddContact(unittest.TestCase):
         wd.find_element_by_name("email").send_keys(contact.email)
         # submit contact creation
         wd.find_element_by_name("submit").click()
+        self.return_to_main_page(wd)
 
     def return_to_main_page(self, wd):
         wd.find_element_by_link_text("home").click()
@@ -54,10 +56,8 @@ class TestAddContact(unittest.TestCase):
 
     def test_add_address(self):
         wd = self.wd
-        self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.create_contact(wd, Contact(firstname="Lev", lastname="Tolstoy", address="Russia", phone="+79310002345", email="lev@mail.ru"))
-        self.return_to_main_page(wd)
         self.logout(wd)
 
     def is_element_present(self, how, what):
