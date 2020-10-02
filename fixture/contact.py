@@ -21,6 +21,11 @@ class ContactHelper:
         wd.find_element_by_name("email").clear()
         wd.find_element_by_name("email").send_keys(contact.email)
 
+    def open_home_page(self):
+        wd = self.app.wd
+        if not wd.current_url.endswith("addressbook/"):
+            wd.find_element_by_link_text("home").click()
+
     def create(self,contact):
         wd = self.app.wd
         # init contact creation
@@ -33,6 +38,7 @@ class ContactHelper:
 
     def delete_first_contact(self):
         wd = self.app.wd
+        self.open_home_page()
         # select first contact
         wd.find_element_by_name("selected[]").click()
         #submit deletion
@@ -42,6 +48,7 @@ class ContactHelper:
 
     def edit_first_contact(self, contact):
         wd = self.app.wd
+        self.open_home_page()
         # open for editing
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
         # edit contact
