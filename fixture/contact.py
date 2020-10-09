@@ -69,11 +69,11 @@ class ContactHelper:
     def get_contact_list(self):
         wd = self.app.wd
         self.open_home_page()
-        contact = []
-        for element in wd.find_elements_by_name("entry"):
+        contacts = []
+        for element in wd.find_elements_by_xpath("//tr[@name='entry']"):
             lastname = element.find_element_by_xpath("//td[2]").text
             firstname = element.find_element_by_xpath("//td[3]").text
             id = element.find_element_by_name("selected[]").get_attribute("value")
-            contact.append(Contact(firstname=firstname, lastname=lastname, id = id))
-        return contact
+            contacts.append(Contact(firstname = firstname, lastname = lastname, id = id))
+        return contacts
 
