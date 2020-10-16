@@ -58,7 +58,7 @@ class ContactHelper:
         wd = self.app.wd
         self.open_home_page()
         # open for editing
-        wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
+        self.open_contact_to_edit_by_index(index)
         # edit contact
         self.fill_contact_form(contact)
         # submit update
@@ -89,3 +89,12 @@ class ContactHelper:
                 self.contact_cache.append(Contact(firstname = firstname, lastname = lastname, id = id))
         return list(self.contact_cache)
 
+    def open_contact_to_edit_by_index(self,index):
+        wd = self.app.wd
+        self.open_home_page()
+        wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
+
+    def open_contact_view_by_index(self, index):
+        wd = self.app.wd
+        self.open_home_page()
+        wd.find_elements_by_xpath("//img[@alt='Details']")[index].click()
