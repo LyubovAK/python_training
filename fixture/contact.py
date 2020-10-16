@@ -17,7 +17,7 @@ class ContactHelper:
         self.change_field_value("firstname", contact.firstname)
         self.change_field_value("lastname", contact.lastname)
         self.change_field_value("address", contact.address)
-        self.change_field_value("home", contact.phone)
+        self.change_field_value("home", contact.homephone)
         self.change_field_value("email", contact.email)
 
     def open_home_page(self):
