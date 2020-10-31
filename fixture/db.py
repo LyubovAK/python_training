@@ -22,7 +22,7 @@ class DbFixture:
         return group_list
 
     def get_contact_list(self):
-        contact_list= []
+        contact_list = []
         with self.connection.cursor() as contact_cursor:
             contact_cursor.execute("select id, firstname, lastname, address, home, mobile, work, email, email2, email3, phone2 from addressbook where deprecated='0000-00-00 00:00:00'")
             for contact_row in contact_cursor:
