@@ -14,4 +14,11 @@ Scenario: Delete a contact
   Given a non-empty contact list
   Given a random contact from the list
   When I delete the contact from list
-  Then the new contact list is quel to the old list without the deleted contact
+  Then the new contact list is equal to the old list without the deleted contact
+
+Scenario: Edit a contact
+  Given a non-empty contact list
+  Given a random contact from the list
+  Given a new firstname and lastname for edited contact
+  When I edit the contact from list
+  Then the new contact list is equal to the old with the edit contact
