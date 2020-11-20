@@ -1,0 +1,193 @@
+{
+  "uid" : "ba3e3c23a364a4c6",
+  "name" : "test_contact_on_home_page",
+  "fullName" : "test.test_contacts#test_contact_on_home_page",
+  "historyId" : "bb0cf150a51a70b71a17921e6c915bdc",
+  "time" : {
+    "start" : 1605901071550,
+    "stop" : 1605901072477,
+    "duration" : 927
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert 'lastname7lr' == 'lastname7lr '\n  - lastname7lr \n  ?            -\n  + lastname7lr",
+  "statusTrace" : "app = <fixture.application.Application object at 0x04523EC8>, db = <fixture.db.DbFixture object at 0x045234F0>\n\n    def test_contact_on_home_page(app, db):\n        with allure.step(\"Given a sorted contact list from home page\"):\n            contacts_from_home_page = sorted(app.contact.get_contact_list(), key=Contact.id_or_max)\n        with allure.step(\"Given a sorted contact list from home db\"):\n            contacts_from_db = sorted(db.get_contact_list(), key=Contact.id_or_max)\n        with allure.step(\"Then the contact list from home page is equal to the contact list from db\"):\n            assert len(contacts_from_home_page) == len(contacts_from_db)\n            for i in range(len(contacts_from_home_page)):\n                contact_from_home_page = contacts_from_home_page[i]\n                contact_from_db = contacts_from_db[i]\n                assert contact_from_home_page.all_phones_from_home_page == merge_phones_like_on_home_page(contact_from_db)\n                assert contact_from_home_page.all_emails_from_home_page == merge_emails_like_on_home_page(contact_from_db)\n                assert contact_from_home_page.firstname == contact_from_db.firstname\n>               assert contact_from_home_page.lastname == contact_from_db.lastname\nE               AssertionError: assert 'lastname7lr' == 'lastname7lr '\nE                 - lastname7lr \nE                 ?            -\nE                 + lastname7lr\n\ntest\\test_contacts.py:19: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "app",
+    "time" : {
+      "start" : 1605901060744,
+      "stop" : 1605901071545,
+      "duration" : 10801
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "stop",
+    "time" : {
+      "start" : 1605901060732,
+      "stop" : 1605901060732,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "db",
+    "time" : {
+      "start" : 1605901060732,
+      "stop" : 1605901060744,
+      "duration" : 12
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "AssertionError: assert 'lastname7lr' == 'lastname7lr '\n  - lastname7lr \n  ?            -\n  + lastname7lr",
+    "statusTrace" : "app = <fixture.application.Application object at 0x04523EC8>, db = <fixture.db.DbFixture object at 0x045234F0>\n\n    def test_contact_on_home_page(app, db):\n        with allure.step(\"Given a sorted contact list from home page\"):\n            contacts_from_home_page = sorted(app.contact.get_contact_list(), key=Contact.id_or_max)\n        with allure.step(\"Given a sorted contact list from home db\"):\n            contacts_from_db = sorted(db.get_contact_list(), key=Contact.id_or_max)\n        with allure.step(\"Then the contact list from home page is equal to the contact list from db\"):\n            assert len(contacts_from_home_page) == len(contacts_from_db)\n            for i in range(len(contacts_from_home_page)):\n                contact_from_home_page = contacts_from_home_page[i]\n                contact_from_db = contacts_from_db[i]\n                assert contact_from_home_page.all_phones_from_home_page == merge_phones_like_on_home_page(contact_from_db)\n                assert contact_from_home_page.all_emails_from_home_page == merge_emails_like_on_home_page(contact_from_db)\n                assert contact_from_home_page.firstname == contact_from_db.firstname\n>               assert contact_from_home_page.lastname == contact_from_db.lastname\nE               AssertionError: assert 'lastname7lr' == 'lastname7lr '\nE                 - lastname7lr \nE                 ?            -\nE                 + lastname7lr\n\ntest\\test_contacts.py:19: AssertionError",
+    "steps" : [ {
+      "name" : "Given a sorted contact list from home page",
+      "time" : {
+        "start" : 1605901071551,
+        "stop" : 1605901072469,
+        "duration" : 918
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false,
+      "stepsCount" : 0
+    }, {
+      "name" : "Given a sorted contact list from home db",
+      "time" : {
+        "start" : 1605901072469,
+        "stop" : 1605901072471,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false,
+      "stepsCount" : 0
+    }, {
+      "name" : "Then the contact list from home page is equal to the contact list from db",
+      "time" : {
+        "start" : 1605901072471,
+        "stop" : 1605901072476,
+        "duration" : 5
+      },
+      "status" : "failed",
+      "statusMessage" : "AssertionError: assert 'lastname7lr' == 'lastname7lr '\n  - lastname7lr \n  ?            -\n  + lastname7lr\n",
+      "statusTrace" : "  File \"C:\\Devel\\python_training\\test\\test_contacts.py\", line 19, in test_contact_on_home_page\n    assert contact_from_home_page.lastname == contact_from_db.lastname\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true,
+    "stepsCount" : 3
+  },
+  "afterStages" : [ {
+    "name" : "stop::fin",
+    "time" : {
+      "start" : 1605901072725,
+      "stop" : 1605901074165,
+      "duration" : 1440
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "db::fin",
+    "time" : {
+      "start" : 1605901072723,
+      "stop" : 1605901072723,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test"
+  }, {
+    "name" : "suite",
+    "value" : "test_contacts"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-MHR2781"
+  }, {
+    "name" : "thread",
+    "value" : "16120-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test.test_contacts"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "ba3e3c23a364a4c6.json",
+  "parameterValues" : [ ]
+}
